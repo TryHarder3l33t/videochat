@@ -33,13 +33,6 @@ const ContextProvider = ({ children }) => {
     });
   }, []);
 
-  console.log('Call Data');
-  console.log(call.from || 'From');
-  console.log('Call Data');
-  console.log(call.name || 'Name');
-  console.log('Call Data');
-  console.log(call.signal || 'Signal');
-
   const answerCall = () => {
     setCallAccepted(true);
 
@@ -57,6 +50,7 @@ const ContextProvider = ({ children }) => {
 
     connectionRef.current = peer;
   };
+
   //To call a user emit
   const callUser = (id, ev) => {
     ev.preventDefault();
@@ -89,13 +83,6 @@ const ContextProvider = ({ children }) => {
     connectionRef.current.destroy();
     window.location.reload();
   };
-
-  console.log('User Video');
-  console.log(typeof userVideo);
-  console.log(userVideo);
-  console.log('My Video');
-  console.log(typeof myVideo);
-  console.log(myVideo);
 
   return (
     <SocketContext.Provider

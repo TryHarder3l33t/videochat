@@ -85,28 +85,19 @@ const Options = ({ children }) => {
                   sx={{ margin: 2 }}
                   variant='contained'
                   color='secondary'
-                  startIcon={
-                    <PhoneDisabled
-                      fontSize='large'
-                      fullWidth
-                      onClick={leaveCall}
-                    />
-                  }
+                  onClick={leaveCall}
+                  startIcon={<PhoneDisabled fontSize='large' fullWidth />}
                 >
                   Hang Up
                 </Button>
               ) : (
                 <Button
                   sx={{ margin: 2 }}
+                  onClick={(ev) => callUser(idToCall, ev)}
                   fullWidth
                   variant='contained'
                   color='primary'
-                  startIcon={
-                    <Phone
-                      fontSize='large'
-                      onClick={(ev) => callUser(idToCall, ev)}
-                    />
-                  }
+                  startIcon={<Phone fontSize='large' />}
                 >
                   Call
                 </Button>
