@@ -12,7 +12,7 @@ const io = require('socket.io')(server, {
 
 app.use(cors());
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT;
 
 app.get('/', (req, res) => {
   res.send('Welcome Video Chat Server Is Running');
@@ -40,7 +40,4 @@ io.on('connection', (socket) => {
   });
 });
 
-// server.createServer(PORT, () =>
-//   console.log(`Server is running on PORT ${PORT}`)
-// );
 server.listen(PORT, () => console.log(`Server is running on PORT ${PORT}`));
