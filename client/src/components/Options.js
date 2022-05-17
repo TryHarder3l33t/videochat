@@ -11,11 +11,23 @@ import { SocketContext } from '../Context';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { grey } from '@mui/material/colors';
 import { Assignment, Phone, PhoneDisabled } from '@mui/icons-material';
+import { useParams } from 'react-router-dom';
 
 const Options = ({ children }) => {
-  const { me, callAccepted, callEnded, name, setName, leaveCall, callUser } =
-    useContext(SocketContext);
-  const [idToCall, setIdToCall] = useState('');
+  console.log('This is Params');
+  let params = useParams();
+  console.log(params);
+  const {
+    me,
+    callAccepted,
+    callEnded,
+    name,
+    setName,
+    leaveCall,
+    callUser,
+    url,
+  } = useContext(SocketContext);
+  const [idToCall, setIdToCall] = useState(params && params.id);
   //   console.log('This is idToCall');
   //   console.log(idToCall);
   //   console.log(me && me);
@@ -53,7 +65,7 @@ const Options = ({ children }) => {
                 fullWidth
               ></TextField>
 
-              <CopyToClipboard sx={{ mt: 2 }} text={me}>
+              <CopyToClipboard sx={{ mt: 2 }} text={`${url}/home/${me}`}>
                 <Button
                   sx={{
                     bgcolor: 'black',

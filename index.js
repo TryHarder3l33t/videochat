@@ -6,6 +6,7 @@ const cors = require('cors');
 
 // Serve static files from the React app
 const path = require('path');
+//needed for heroku deploy
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 const io = require('socket.io')(server, {
@@ -45,6 +46,7 @@ io.on('connection', (socket) => {
   });
 });
 
+//needed for heroku deploy
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
