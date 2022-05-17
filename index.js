@@ -1,7 +1,12 @@
-const app = require('express')(); //
+const express = require('express');
+const app = express();
 const server = require('http').createServer(app);
 // const server = require('https');
 const cors = require('cors');
+
+// Serve static files from the React app
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 const io = require('socket.io')(server, {
   cors: {
@@ -38,6 +43,12 @@ io.on('connection', (socket) => {
     io.to(data.to).emit('callAccepted', data.signal);
     console.log('Server call was answered');
   });
+});
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
 server.listen(PORT, () => console.log(`Server is running on PORT ${PORT}`));
