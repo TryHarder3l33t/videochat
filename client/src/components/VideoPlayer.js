@@ -9,7 +9,7 @@ const VideoPlayer = () => {
   return (
     <Grid sx={{ justifyContent: 'center' }} container>
       {/* Your Video */}
-      {stream && (
+      {myVideo && (
         <Paper
           sx={{ padding: '10px', border: '2px solid black', margin: '10px' }}
         >
