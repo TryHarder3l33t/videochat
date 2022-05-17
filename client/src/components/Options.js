@@ -65,7 +65,7 @@ const Options = ({ children }) => {
                 fullWidth
               ></TextField>
 
-              <CopyToClipboard sx={{ mt: 2 }} text={`${url}/home/${me}`}>
+              <CopyToClipboard sx={{ mt: 2 }} text={`${url}home/${me}`}>
                 <Button
                   sx={{
                     bgcolor: 'black',
