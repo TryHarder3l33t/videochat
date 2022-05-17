@@ -3,8 +3,12 @@ import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
 
 const SocketContext = createContext();
-const socket = io('https://stackvideo.herokuapp.com/');
-// const socket = io('http://localhost:3001');
+// //heroku
+// const url = 'https://stackvideo.herokuapp.com/';
+//dev
+const url = 'http://localhost:5001';
+
+const socket = io(url);
 
 const ContextProvider = ({ children }) => {
   const [stream, setStream] = useState(null);
