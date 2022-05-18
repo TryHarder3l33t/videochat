@@ -42,10 +42,7 @@ const Options = ({ children }) => {
       }}
       maxWidth='xl'
     >
-      <Paper
-        sx={{ padding: '10px 20px', border: '2px solid black' }}
-        elevation={10}
-      >
+      <Paper sx={{ padding: '10px 20px' }} elevation={0}>
         <form noValidate autoComplete='off'>
           <Grid
             container
@@ -53,22 +50,31 @@ const Options = ({ children }) => {
               width: '100%',
             }}
           >
-            <Grid sx={{ padding: '20' }} item xs={12} md={6}>
-              <Typography gutterBottom variant='h6'>
-                Account Info
+            <Grid sx={{ padding: '0' }} item xs={12} md={6}>
+              <Typography gutterBottom variant='body'>
+                Name
               </Typography>
 
               <TextField
-                label='Name'
+                label='Your Name'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 fullWidth
               ></TextField>
 
-              <CopyToClipboard sx={{ mt: 2 }} text={`${url}home/${me}`}>
+              <CopyToClipboard
+                sx={{
+                  bgcolor: 'black',
+                  ':hover': {
+                    bgcolor: grey[800],
+                    color: 'white',
+                  },
+                  mt: 2,
+                }}
+                text={`${url}home/${me}`}
+              >
                 <Button
                   sx={{
-                    bgcolor: 'black',
                     ':hover': {
                       bgcolor: grey[800],
                       color: 'red',
@@ -78,12 +84,12 @@ const Options = ({ children }) => {
                   fullWidth
                   startIcon={<Assignment fontSize='large' />}
                 >
-                  Copy Your ID
+                  Copy Video Link
                 </Button>
               </CopyToClipboard>
             </Grid>
             <Grid sx={{ padding: '20' }} item xs={12} md={6}>
-              <Typography gutterBottom variant='h6'>
+              <Typography gutterBottom variant='body'>
                 Make A Call
               </Typography>
               <TextField
@@ -94,7 +100,14 @@ const Options = ({ children }) => {
               ></TextField>
               {callAccepted && !callEnded ? (
                 <Button
-                  sx={{ margin: 2 }}
+                  sx={{
+                    bgcolor: 'black',
+                    ':hover': {
+                      bgcolor: grey[800],
+                      color: 'white',
+                    },
+                    mt: 2,
+                  }}
                   variant='contained'
                   color='secondary'
                   onClick={leaveCall}
@@ -104,7 +117,14 @@ const Options = ({ children }) => {
                 </Button>
               ) : (
                 <Button
-                  sx={{ margin: 2 }}
+                  sx={{
+                    bgcolor: 'black',
+                    ':hover': {
+                      bgcolor: grey[800],
+                      color: 'white',
+                    },
+                    mt: 2,
+                  }}
                   onClick={(ev) => callUser(idToCall, ev)}
                   fullWidth
                   variant='contained'

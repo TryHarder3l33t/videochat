@@ -4,9 +4,9 @@ import Peer from 'simple-peer';
 
 const SocketContext = createContext();
 // //heroku
-const url = 'https://stackvideo.herokuapp.com/';
+// const url = 'https://stackvideo.herokuapp.com/';
 //dev
-// const url = 'http://localhost:5001/';
+const url = 'http://localhost:5001/';
 
 const socket = io(url);
 
@@ -40,7 +40,7 @@ const ContextProvider = ({ children }) => {
 
   const answerCall = () => {
     setCallAccepted(true);
-
+    window.scroll(0, 0);
     const peer = new Peer({ initiator: false, trickle: false, stream });
 
     peer.on('signal', (data) => {

@@ -17,7 +17,7 @@ const Notifications = () => {
             justifyContent: 'center',
           }}
         >
-          <Typography variant='h6'>{call.name} is calling</Typography>
+          <Typography variant='h6'>{call.name} is calling &nbsp; </Typography>
           <Button variant='contained' color='primary' onClick={answerCall}>
             ANSWER
           </Button>
