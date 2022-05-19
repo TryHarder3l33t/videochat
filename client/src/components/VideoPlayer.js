@@ -8,7 +8,6 @@ import Avatar from '@mui/material/Avatar';
 import { red } from '@mui/material/colors';
 
 const VideoPlayer = () => {
-  //Contains all the SocketContext Stuff
   const {
     answerNameId,
     name,
@@ -18,8 +17,7 @@ const VideoPlayer = () => {
     callEnded,
     call,
   } = useContext(SocketContext);
-  console.log('This is the answer Id');
-  console.log(answerNameId);
+
   return (
     <Grid
       sx={{

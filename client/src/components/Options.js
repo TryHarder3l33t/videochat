@@ -10,7 +10,7 @@ import {
 import React, { useContext, useState } from 'react';
 import { SocketContext } from '../Context';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { grey } from '@mui/material/colors';
+import { green, grey } from '@mui/material/colors';
 import { Assignment, Phone, PhoneDisabled } from '@mui/icons-material';
 import { useParams } from 'react-router-dom';
 
@@ -119,7 +119,7 @@ const Options = ({ children }) => {
                     sx={{
                       bgcolor: 'black',
                       ':hover': {
-                        bgcolor: grey[800],
+                        bgcolor: green[800],
                         color: 'white',
                       },
                       mt: 2,

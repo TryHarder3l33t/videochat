@@ -8,7 +8,7 @@ const Notifications = () => {
     useContext(SocketContext);
 
   return (
-    <>
+    <div>
       {call && call.isReceived && !callAccepted && calling && (
         <Grid
           container
@@ -45,8 +45,8 @@ const Notifications = () => {
               sx={{
                 bgcolor: green[900],
                 ':hover': {
-                  bgcolor: green[700], // background
-                  color: 'white', //text
+                  bgcolor: green[700],
+                  color: 'white',
                 },
                 mt: 2,
               }}
@@ -120,7 +120,7 @@ const Notifications = () => {
           </Grid>
         </Grid>
       )}
-    </>
+    </div>
   );
 };
 

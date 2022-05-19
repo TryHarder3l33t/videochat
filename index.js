@@ -28,14 +28,11 @@ io.on('connection', (socket) => {
   //get your id on the frontend
   socket.emit('serverInfo', socket.id);
 
-  //broadcast message call ended
   socket.on('disconnect', () => {
     socket.broadcast.emit('callended');
   });
 
   socket.on('callUser', ({ userToCall, signalData, from, name }) => {
-    console.log('This is the server callUser');
-    console.log(name || 'No Userdat');
     io.to(userToCall).emit('callUser', { signal: signalData, from, name });
   });
 
@@ -44,8 +41,6 @@ io.on('connection', (socket) => {
       signal: data.signal,
       answerName: data.answerName,
     });
-    console.log('Server answerName');
-    console.log(data.answerName);
   });
 });
 

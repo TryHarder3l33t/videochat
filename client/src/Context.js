@@ -39,14 +39,13 @@ const ContextProvider = ({ children }) => {
       setCall({ isReceived: true, from, name: callerName, signal });
     });
   }, []);
-  //When yoh answer the call send your name back
+
   const answerCall = () => {
     setCalling(false);
     setCallAccepted(true);
     window.scroll(0, 0);
     const peer = new Peer({ initiator: false, trickle: false, stream });
 
-    //Send Call info for name here
     peer.on('signal', (data) => {
       socket.emit('answerCall', {
         signal: data,
@@ -54,9 +53,6 @@ const ContextProvider = ({ children }) => {
         answerName: name,
       });
     });
-    console.log('This is the name should be Eric');
-    console.log(name);
-    console.log(answerNameId);
     peer.on('stream', (currentStream) => {
       userVideo.current.srcObject = currentStream;
     });
@@ -64,14 +60,10 @@ const ContextProvider = ({ children }) => {
     peer.signal(call.signal);
 
     connectionRef.current = peer;
-    console.log('this is the call');
-    console.log(call);
   };
 
-  //To call a user emit
   const callUser = (id, ev) => {
     ev.preventDefault();
-    console.log('call user pressed');
     const peer = new Peer({ initiator: true, trickle: false, stream });
     peer.on('signal', (data) => {
       socket.emit('callUser', {
@@ -91,7 +83,6 @@ const ContextProvider = ({ children }) => {
       peer.signal(signal);
 
       connectionRef.current = peer;
-      console.log('this is the answer name id', answerName);
     });
   };
 
