@@ -15,11 +15,9 @@ import { Assignment, Phone, PhoneDisabled } from '@mui/icons-material';
 import { useParams } from 'react-router-dom';
 
 const Options = ({ children }) => {
-  console.log('This is Params');
   let params = useParams();
-  console.log(params);
   const {
-    me,
+    serverInfo,
     callAccepted,
     callEnded,
     name,
@@ -31,11 +29,6 @@ const Options = ({ children }) => {
     call,
   } = useContext(SocketContext);
   const [idToCall, setIdToCall] = useState(params && params.id);
-
-  console.log('This is the conditional stuff');
-  console.log(call.isReceived);
-  console.log(callAccepted);
-  console.log(calling);
 
   return (
     <Container
@@ -76,7 +69,7 @@ const Options = ({ children }) => {
                     },
                     mt: 2,
                   }}
-                  text={`${url}home/${me}`}
+                  text={`${url}home/${serverInfo}`}
                 >
                   <Button
                     sx={{

@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const server = require('http').createServer(app);
-// const server = require('https');
 const cors = require('cors');
 
 // Serve static files from the React app
@@ -27,7 +26,7 @@ app.get('/', (req, res) => {
 // On client side when it calls io(url) this connects
 io.on('connection', (socket) => {
   //get your id on the frontend
-  socket.emit('me', socket.id);
+  socket.emit('serverInfo', socket.id);
 
   //broadcast message call ended
   socket.on('disconnect', () => {

@@ -6,8 +6,6 @@ import { SocketContext } from '../Context';
 const Notifications = () => {
   const { answerCall, call, callAccepted, leaveCall, calling, callEnded } =
     useContext(SocketContext);
-  console.log('This is the call');
-  console.log(call);
 
   return (
     <>

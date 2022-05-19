@@ -1,26 +1,15 @@
-import { Grid, Paper } from '@mui/material';
+import { Grid } from '@mui/material';
 import React, { useContext } from 'react';
 import { SocketContext } from '../Context';
-
-import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const VideoPlayer = () => {
   //Contains all the SocketContext Stuff
-  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } =
+  const { name, callAccepted, myVideo, userVideo, callEnded, call } =
     useContext(SocketContext);
   return (
     <Grid
@@ -30,7 +19,6 @@ const VideoPlayer = () => {
         justifyContent: 'center',
       }}
       container
-      xs={12}
     >
       {userVideo && !callEnded && callAccepted && (
         <Grid
@@ -53,7 +41,7 @@ const VideoPlayer = () => {
                   42
                 </Avatar>
               }
-              title={name || 'John Doe'}
+              title={call.name || ''}
             />
 
             <CardContent sx={{ display: 'flex', justifyContent: 'center' }}>

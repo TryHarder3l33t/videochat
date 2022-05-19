@@ -4,15 +4,15 @@ import Peer from 'simple-peer';
 
 const SocketContext = createContext();
 // //heroku
-const url = 'https://stackvideo.herokuapp.com/';
+//const url = 'https://stackvideo.herokuapp.com/';
 //dev
-//const url = 'http://localhost:5001/';
+const url = 'http://localhost:5001/';
 
 const socket = io(url);
 
 const ContextProvider = ({ children }) => {
   const [stream, setStream] = useState(null);
-  const [me, setMe] = useState('');
+  const [serverInfo, setServerInfo] = useState('');
   const [call, setCall] = useState({});
   const [callAccepted, setCallAccepted] = useState(false);
   const [callEnded, setCallEnded] = useState(false);
@@ -28,11 +28,10 @@ const ContextProvider = ({ children }) => {
       .getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
         setStream(currentStream);
-
         myVideo.current.srcObject = currentStream;
       });
 
-    socket.on('me', (id) => setMe(id));
+    socket.on('serverInfo', (id) => setServerInfo(id));
 
     socket.on('callUser', ({ from, name: callerName, signal }) => {
       setCalling(true);
@@ -58,6 +57,8 @@ const ContextProvider = ({ children }) => {
     peer.signal(call.signal);
 
     connectionRef.current = peer;
+    console.log('this is the call');
+    console.log(call);
   };
 
   //To call a user emit
@@ -69,7 +70,7 @@ const ContextProvider = ({ children }) => {
       socket.emit('callUser', {
         userToCall: id,
         signalData: data,
-        from: me,
+        from: serverInfo,
         name,
       });
     });
@@ -84,6 +85,8 @@ const ContextProvider = ({ children }) => {
 
       connectionRef.current = peer;
     });
+    console.log('this is the call');
+    console.log(call);
   };
 
   const leaveCall = () => {
@@ -106,7 +109,7 @@ const ContextProvider = ({ children }) => {
         name,
         setName,
         callEnded,
-        me,
+        serverInfo,
         callUser,
         leaveCall,
         answerCall,
