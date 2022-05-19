@@ -43,10 +43,10 @@ const VideoPlayer = () => {
           container
           item
           xs={12}
-          md={6}
+          md={12}
         >
           {/* Their Video */}{' '}
-          <Card sx={{ minWidth: 500 }}>
+          <Card sx={{}}>
             <CardHeader
               avatar={
                 <Avatar sx={{ bgcolor: red[510] }} aria-label='recipe'>
@@ -57,15 +57,9 @@ const VideoPlayer = () => {
             />
 
             <CardContent sx={{ display: 'flex', justifyContent: 'center' }}>
-              <video playsInline muted ref={userVideo} autoPlay width={480} />
+              <video playsInline ref={userVideo} autoPlay />
             </CardContent>
           </Card>
-          {/* {callAccepted && !callEnded && (
-          <Paper sx={{ padding: '10px', margin: '10px' }}>
-            <Typography variant='h6'> {call.name || 'Anon'}</Typography>
-            <video playsInline muted ref={userVideo} autoPlay />
-          </Paper>
-        )} */}
         </Grid>
       )}
       {/* My Video */}
@@ -79,9 +73,9 @@ const VideoPlayer = () => {
           container
           item
           xs={12}
-          md={6}
+          md={12}
         >
-          <Card sx={{ minWidth: 500 }}>
+          <Card sx={{}}>
             <CardHeader
               avatar={
                 <Avatar sx={{ bgcolor: red[510] }} aria-label='recipe'>
@@ -92,7 +86,7 @@ const VideoPlayer = () => {
             />
 
             <CardContent sx={{ display: 'flex', justifyContent: 'center' }}>
-              <video playsInline muted ref={myVideo} autoPlay width={480} />
+              <video playsInline muted ref={myVideo} autoPlay />
             </CardContent>
           </Card>
         </Grid>

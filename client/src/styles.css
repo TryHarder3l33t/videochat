@@ -4,6 +4,11 @@ body {
   background-size: cover;
 }
 
+video {
+  max-width: '550px';
+  margin: auto;
+}
+
 * {
   margin: 0;
   padding: 0;
