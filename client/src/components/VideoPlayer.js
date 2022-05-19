@@ -57,7 +57,7 @@ const VideoPlayer = () => {
             />
 
             <CardContent sx={{ display: 'flex', justifyContent: 'center' }}>
-              <video playsInline muted ref={userVideo} autoPlay width={480} />
+              <video playsInline ref={userVideo} autoPlay width={480} />
             </CardContent>
           </Card>
           {/* {callAccepted && !callEnded && (
@@ -92,7 +92,7 @@ const VideoPlayer = () => {
             />
 
             <CardContent sx={{ display: 'flex', justifyContent: 'center' }}>
-              <video playsInline muted ref={myVideo} autoPlay width={480} />
+              <video playsInline ref={myVideo} autoPlay width={480} />
             </CardContent>
           </Card>
         </Grid>

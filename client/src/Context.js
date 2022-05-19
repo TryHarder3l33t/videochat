@@ -4,9 +4,9 @@ import Peer from 'simple-peer';
 
 const SocketContext = createContext();
 // //heroku
-// const url = 'https://stackvideo.herokuapp.com/';
+const url = 'https://stackvideo.herokuapp.com/';
 //dev
-const url = 'http://localhost:5001/';
+// const url = 'http://localhost:5001/';
 
 const socket = io(url);
 
