@@ -62,13 +62,34 @@ const App = () => {
             alignContent: 'center',
             justifyContent: 'center',
           }}
+          container
           item
           xs={12}
           md={8}
         >
-          <Options>
+          <Grid
+            sx={{
+              my: 2,
+              display: 'flex',
+              alignContent: 'center',
+              justifyContent: 'center',
+            }}
+            item
+            xs={12}
+          >
             <Notifications />
-          </Options>
+          </Grid>
+          <Grid
+            sx={{
+              display: 'flex',
+              alignContent: 'center',
+              justifyContent: 'center',
+            }}
+            item
+            xs={12}
+          >
+            <Options />
+          </Grid>
         </Grid>
       </Grid>
     </Container>
