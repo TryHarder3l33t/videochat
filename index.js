@@ -42,9 +42,10 @@ io.on('connection', (socket) => {
   socket.on('answerCall', (data) => {
     io.to(data.to).emit('callAccepted', {
       signal: data.signal,
-      ansName: data.answerName,
+      answerName: data.answerName,
     });
-    console.log('Server call was answered');
+    console.log('Server answerName');
+    console.log(data.answerName);
   });
 });
 

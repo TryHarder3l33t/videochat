@@ -4,9 +4,9 @@ import Peer from 'simple-peer';
 
 const SocketContext = createContext();
 // //heroku
-const url = 'https://stackvideo.herokuapp.com/';
+//const url = 'https://stackvideo.herokuapp.com/';
 //dev
-//const url = 'http://localhost:5001/';
+const url = 'http://localhost:5001/';
 
 const socket = io(url);
 
@@ -56,6 +56,7 @@ const ContextProvider = ({ children }) => {
     });
     console.log('This is the name should be Eric');
     console.log(name);
+    console.log(answerNameId);
     peer.on('stream', (currentStream) => {
       userVideo.current.srcObject = currentStream;
     });
@@ -90,9 +91,8 @@ const ContextProvider = ({ children }) => {
       peer.signal(signal);
 
       connectionRef.current = peer;
+      console.log('this is the answer name id', answerName);
     });
-    console.log('this is the call');
-    console.log(call);
   };
 
   const leaveCall = () => {
