@@ -1,6 +1,9 @@
-## URL
+# URL
 
-# https://stackvideo.herokuapp.com/
+## https://stackvideo.herokuapp.com/
+
+!!Doesn't work well on Safari browsers :(
+Type in your name. Hit the copy link and send it to your friend or open it in another browser. Tell your friend to hit call.
 
 # Getting Started with Create React App
 
