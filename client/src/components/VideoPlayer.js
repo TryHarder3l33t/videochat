@@ -9,8 +9,17 @@ import { red } from '@mui/material/colors';
 
 const VideoPlayer = () => {
   //Contains all the SocketContext Stuff
-  const { name, callAccepted, myVideo, userVideo, callEnded, call } =
-    useContext(SocketContext);
+  const {
+    answerNameId,
+    name,
+    callAccepted,
+    myVideo,
+    userVideo,
+    callEnded,
+    call,
+  } = useContext(SocketContext);
+  console.log('This is the answer Id');
+  console.log(answerNameId);
   return (
     <Grid
       sx={{
@@ -41,7 +50,7 @@ const VideoPlayer = () => {
                   42
                 </Avatar>
               }
-              title={call.name || ''}
+              title={call.name || answerNameId}
             />
 
             <CardContent sx={{ display: 'flex', justifyContent: 'center' }}>
