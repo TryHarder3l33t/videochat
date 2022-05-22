@@ -28,7 +28,7 @@ const Options = ({ children }) => {
     calling,
     call,
   } = useContext(SocketContext);
-  const [idToCall, setIdToCall] = useState(params && params.id);
+  const [idToCall, setIdToCall] = useState((params && params.id) || '');
 
   return (
     <Container

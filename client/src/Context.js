@@ -16,7 +16,7 @@ const ContextProvider = ({ children }) => {
   const [call, setCall] = useState({});
   const [callAccepted, setCallAccepted] = useState(false);
   const [callEnded, setCallEnded] = useState(false);
-  const [name, setName] = useState();
+  const [name, setName] = useState('');
   const [calling, setCalling] = useState(false);
   const [answerNameId, setAnswerNameId] = useState('');
   const myVideo = useRef();
